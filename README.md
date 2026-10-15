@@ -1,4 +1,8 @@
-# i18n-check
+# i18n-check — Translation File Checker
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![MIT License](https://img.shields.io/badge/License-MIT-2ea44f?style=flat)](LICENSE)
 
 A CLI for comparing JSON translation files. It reports missing and extra keys, mismatched interpolation placeholders, and base-language strings that have no statically referenced key in your source code.
 
