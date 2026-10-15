@@ -1,17 +1,23 @@
 # i18n-check
 
-CLI para comparar arquivos JSON de locales: aponta chaves ausentes e extras, variáveis de interpolação inconsistentes e traduções da base sem referência estática no código.
+A CLI for comparing JSON translation files. It reports missing and extra keys, mismatched interpolation placeholders, and base-language strings that have no statically referenced key in your source code.
 
-## Usar
+## Build and run
 
-Requer Node.js 20. Execute **npm install** e **npm run build**. Para usar em outro projeto, instale o repositório público:
+Requires Node.js 20 or later.
 
-    npm install --save-dev github:ulrichheringer/i18n-check
+```sh
+npm install
+npm run build
+node dist/cli.js --locales ./locales --source ./src --base en
+```
 
-Depois rode:
+Use `--fail-on any`, `--fail-on missing`, or `--fail-on never` to control the exit code. By default, missing keys fail the command, which makes it suitable for CI.
 
-    node dist/cli.js --locales ./locales --source ./src --base en
+The CLI accepts flat JSON files or one JSON file per locale. Source scanning recognizes literal keys in `t()`, `translate()`, and `i18n.t()` calls; it cannot detect keys built at runtime.
 
-Use **--fail-on any** para falhar com qualquer achado, **--fail-on missing** para falhar apenas com traduções ausentes ou **--fail-on never** para apenas informar. O modo padrão falha se houver chaves ausentes, para que o comando possa encerrar com erro no CI.
+To install it in another project after publishing, run:
 
-Arquivos JSON planos e pastas por locale são aceitos. Chamadas dinâmicas de tradução não podem ser detectadas; o uso é identificado por chaves literais em chamadas t(), translate() e i18n.t().
+```sh
+npm install --save-dev github:ulrichheringer/i18n-check
+```
